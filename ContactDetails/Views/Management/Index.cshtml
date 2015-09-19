@@ -1,0 +1,34 @@
+﻿@model MVCAssignement2.Areas.ContactDetails.Models.ContactDetails
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2>Contact Details</h2>
+
+@using (Html.BeginForm("Index", "Management"))
+{
+    @Html.ValidationSummary(true)
+<fieldset class="capture">
+    <legend>Capture Details</legend>
+    <div><label>First Name</label> @Html.TextBoxFor(model => model.FirstName)</div>
+    <div><label>Last Name</label> @Html.TextBoxFor(model => model.LastName)</div>
+    <div><label>Email</label>@Html.TextBoxFor(model => model.Email)</div>
+    <div><label>Home Phone</label>@Html.TextBoxFor(model => model.HomePhone.CountryCode)@Html.TextBoxFor(model => model.HomePhone.AreaCode)@Html.TextBoxFor(model => model.HomePhone.PhoneNumber)</div>
+    <div><label>Cell Phone</label>@Html.TextBoxFor(model => model.CellPhone.CountryCode)@Html.TextBoxFor(model => model.CellPhone.AreaCode)@Html.TextBoxFor(model => model.CellPhone.PhoneNumber)</div>
+    <div><label>Address Line 1</label>@Html.TextBoxFor(model => model.HomeAddress.Line1)</div>
+    <div><label>Address Line 2</label>@Html.TextBoxFor(model => model.HomeAddress.Line2)</div>
+    <div><label>Address Line 3</label>@Html.TextBoxFor(model => model.HomeAddress.Line3)</div>
+    <div><label>City</label>@Html.TextBoxFor(model => model.HomeAddress.City)</div>
+    <div><label>Province</label>@Html.TextBoxFor(model => model.HomeAddress.Province)</div>
+    <div><label>Country</label>@Html.TextBoxFor(model => model.HomeAddress.Country)</div>
+    <div><label>Postal Code</label>@Html.TextBoxFor(model => model.HomeAddress.PostalCode)</div>
+</fieldset>
+    <button type="submit">Submit</button>
+}
